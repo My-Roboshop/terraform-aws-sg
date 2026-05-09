@@ -10,9 +10,9 @@ resource "aws_security_group" "main" {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 
-    tags = merge(
-     local.common_tags,
-     var.sg_tags,
+  tags = merge(
+    var.sg_tags,
+    local.common_tags,
     {
         Name = "${local.common_name_suffix}-${var.sg_name}" # roboshop-dev-catalogue
     }
